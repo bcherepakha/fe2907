@@ -1,0 +1,19 @@
+.header__row {
+    display: flex;
+}
+
+/* container width: 1649px */
+/* empty space: 949px */
+/* grow: 3 + 2 + 2 = 7 */
+/* 1grow = 949px / 7 */
+.header__row a {
+    flex-basis: 50%;
+    flex-grow: 3;
+    flex-shrink: 2;
+}
+
+.header__row div {
+    flex-basis: 50%;
+    flex-grow: 2;
+    flex-shrink: 3;
+}

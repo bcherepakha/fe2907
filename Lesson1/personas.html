@@ -9,6 +9,10 @@
         :root {
             font-size: 14px;
             line-height: 1.2;
+
+            color: #000;
+
+            font-family: Arial, serif;
         }
 
         body {
@@ -18,10 +22,39 @@
             justify-content: center;
         }
 
+        h2 {
+            font-size: 1.2857rem; /*? X = 18/14 */
+            line-height: 1.6667;  /* Y = 21/18 */
+
+            color: #000;
+
+            margin: 0 0 8px;
+        }
+
+        ul {
+            margin: 8px 0 36px;
+            padding: 0;
+            list-style: none;
+
+            font-size: 0.928571429rem;
+            line-height: 1.15384615;
+        }
+
+        .goals ul li {
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .goals ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+        }
+
         .wrapper {
             display: flex;
             min-height: 100vh;
-            flex: 1 1 900px;
+            flex: 0 1 900px;
         }
 
         .main {
@@ -34,6 +67,45 @@
             flex-grow: 630;
             flex-shrink: 0;
             flex-basis: 0;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .aspirations {
+            padding: 32px 80px 39px;
+
+            flex: 0 0 auto;
+        }
+
+        .aspirations__title {
+            margin-bottom: 0;
+        }
+
+        .aspirations__goal {
+            font-size: 1.2857rem; /*? X = 18/14 */
+            line-height: 1.6667;  /* Y = 21/18 */
+            font-weight: bold;
+
+            margin: 0;
+
+            color: #666;
+            /* R, G, B, A */
+            /* rgba(0...255, 0...255, 0...255, 0 ... 1) */
+            /* # 00...FF 00...FF 00...FF */
+
+            /* 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f */
+            /* a2*16^2 + a1*16^1 + 16^0*a0 */
+            /* 12 === 1*16^1 + 2 = 18 */
+            /* 66 === 6*16 + 6 */
+            /* 255 === ff */
+        }
+
+        .goals {
+            background: #F9F9F9;
+            padding: 36px 45px 64px 82px;
+
+            flex: 1 0 auto;
         }
 
         /* 1vw = 1/100 viewport width */
@@ -47,6 +119,78 @@
         /* 1rem  = 1 font size root tag */
         /* 1ex, 1rex */
         /* 1ch */
+
+        .main {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            /* background: url('img/adult-backpack-city-845457.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; */
+        }
+
+        .main__background {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: 50% 50%;
+
+            z-index: 1;
+        }
+
+        .main__wrapper {
+            position: relative;
+            z-index: 2;
+
+            padding: 16px;
+
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        }
+
+        .main__data {
+            margin: 0;
+
+            line-height: 1.21428571;
+
+            color: #FFF;
+
+            list-style: none;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 0;
+        }
+
+        .main__data li {
+            flex: 0 0 auto;
+        }
+
+        .main__data li:nth-child(2n) {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 70%;
+            padding-left: .3em;
+        }
+
+        .main__data li:nth-child(2n)::before {
+            content: '• ';
+        }
+
+        .main__title {
+            font-size: 2.14285714rem;
+            line-height: 1.2;
+
+            margin: 0 0 16px;
+
+            color: #FFFFFF;
+        }
     </style>
 </head>
 <body>
@@ -54,20 +198,23 @@
     <div class="wrapper">
 
         <div class="main">
-            <h1>Kyle Ferguson</h1>
-            <ul>
-                <li>Age 28</li>
-                <li>Registered Nurse</li>
-                <li>Technical</li>
-                <li>Mainly Mobile</li>
-            </ul>
+            <img class="main__background" src="img/adult-backpack-city-845457.jpg" alt="">
+            <div class="main__wrapper">
+                <h1 class="main__title">Kyle Ferguson</h1>
+                <ul class="main__data">
+                    <li>Age 28</li>
+                    <li>Registered Nurse</li>
+                    <li>Technical</li>
+                    <li>Mainly Mobile</li>
+                </ul>
+            </div>
         </div>
         <div class="additional">
-            <div>
-                <h2>Aspirations</h2>
-                <p>“Being energy efficient helps me save money.”</p>
+            <div class="aspirations">
+                <h2 class="aspirations__title">Aspirations</h2>
+                <p class="aspirations__goal">“Being energy efficient helps me save money.”</p>
             </div>
-            <div>
+            <div class="goals">
                 <h2>Drive</h2>
                 <ul>
                     <li>Learning, teaching, and helping others</li>
@@ -87,6 +234,5 @@
         </div>
 
     </div>
-
 </body>
 </html>

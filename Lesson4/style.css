@@ -1,0 +1,120 @@
+.first {
+    display: flex;
+}
+
+.first .colored {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.second {
+    display: flex;
+}
+
+.second .colored {
+    flex: 1 0 0;
+}
+
+.third {
+    display: flex;
+}
+
+.third .colored {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.fourth {
+    display: flex;
+}
+
+.fourth .colored {
+    flex: 0 0 25%;
+}
+
+.fourth .colored:last-child {
+    flex-grow: 1;
+}
+
+.fifth {
+    display: flex;
+}
+
+.fifth .colored {
+    flex: 1 0 0;
+}
+
+@media (max-width: 1800px) {
+    .first {
+        flex-wrap: wrap;
+    }
+
+    .first .colored {
+        flex-basis: 40%;
+    }
+
+    .third {
+        flex-wrap: wrap;
+    }
+
+    .third .colored {
+        flex-grow: 1;
+    }
+
+    .third .colored:last-child {
+        flex-basis: 60%;
+    }
+
+    .fourth .colored {
+        flex-basis: 35%;
+    }
+
+    .fourth .colored:not(:nth-child(2)) {
+        flex-shrink: 1;
+    }
+
+    .fifth {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .fifth .colored {
+        flex: 0 0 33%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .third {
+        flex-wrap: nowrap;
+    }
+
+    .third .colored.colored {
+        flex: 1 0 0;
+    }
+
+    .fifth .colored {
+        flex-basis: 40%;
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 960px) {
+    .third {
+        display: block;
+    }
+
+    .fourth {
+        flex-wrap: wrap;
+    }
+
+    .fourth .colored {
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .fourth, .fifth {
+        display: block;
+    }
+}

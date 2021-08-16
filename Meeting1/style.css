@@ -390,3 +390,58 @@ body {
         font-size: 1.5rem;
     }
 }
+
+.block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.block__wrapper {
+    flex: 1 1 100%;
+    max-width: 1160px;
+}
+
+.possibilities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    counter-reset: items 0;
+}
+
+.possibilities li {
+    counter-increment: items;
+
+    background: #FFFFFF;
+    min-height: 180px;
+
+    padding: 70px 40px 40px;
+
+    box-shadow: 0px 16px 80px rgba(0, 0, 0, 0.07), 0px 6.68442px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 3.57381px 17.869px rgba(0, 0, 0, 0.0417275), 0px 2.00345px 10.0172px rgba(0, 0, 0, 0.035), 0px 1.06402px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 0.442761px 2.21381px rgba(0, 0, 0, 0.0196802);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.possibilities li::before {
+    content: "0" counter(items);
+
+    position: absolute;
+    top: 0;
+    left: 20px;
+
+    font-weight: 700;
+    font-size: 5.1rem;
+    line-height: 1.3627451;
+
+    color: rgba(255, 219, 72, 0.25);
+}
+
+.possibilities li:nth-child(n+10):before {
+    content: counter(items);
+}

@@ -40,3 +40,10 @@ console.log(bigInt / 10n);
 
 console.log( '12' + 8  );
 console.log(  8 + '12' );
+
+function show(a) {
+    console.log(a);
+}
+
+show(5);
+show(8);

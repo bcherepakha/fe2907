@@ -8,7 +8,7 @@
 </head>
 <body>
     <script src="task1.js"></script>
-    <script>
+    <!-- <script>
         let userWantsContinue = true;
 
         for (let i = 1; userWantsContinue; i = getNextSimple(i)) {
@@ -27,6 +27,25 @@
 
             return d;
         }
+    </script> -->
+    <script>
+        let n = prompt('Введите n', 1000);
+        let k = prompt('Введите k', 33);
+
+        if ( n === null || k === null) {
+            alert('Вы отказались вводить числа n и k');
+        }
+
+        n = parseInt(n, 10);
+        k = parseInt(k, 10);
+
+        if ( isNaN(n) || isNaN(k) || k <= 0 || n <= 0 ) {
+            alert('Введенные данные не корректны');
+        }
+
+        consoleNKdigit(n, k);
+
+        alert('Результат уже в консольке');
     </script>
 </body>
 </html>

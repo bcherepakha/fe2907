@@ -49,6 +49,10 @@ function consoleNSimpledigit(n) {
 // consoleNSimpledigit(100);
 
 function consoleNKdigit(n, k) {
+    //? i = i + k;
+    for (let i=k; i<=n; i+=k) {
+        console.log(i);
+    }
 }
 
 consoleNKdigit(10, 2); // 2, 4, 6, 8, 10

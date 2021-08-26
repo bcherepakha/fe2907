@@ -8,8 +8,3 @@
 
 * [task 1.3](task1.js)
 * [task 2](task2.js)
-
-<!-- * [Return the Missing Element](https://www.codewars.com/kata/return-the-missing-element)
-* [Add property to every object in array](https://www.codewars.com/kata/add-property-to-every-object-in-array)
-* [Find Your Villain Name](https://www.codewars.com/kata/find-your-villain-name)
-* [Take a Ten Minute Walk](https://www.codewars.com/kata/take-a-ten-minute-walk) -->

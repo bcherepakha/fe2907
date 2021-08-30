@@ -1,0 +1,163 @@
+.cross__board {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid black;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+.cross__board--row {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+.cross__board-item {
+    position: relative;
+    flex: 1 0 33%;
+
+    padding-top: 33%;
+    height: 0;
+
+    border: 1px solid black;
+
+    box-sizing: border-box;
+}
+
+.x, .o {
+    stroke: black;
+    stroke-width: 7;
+    stroke-linecap: round;
+}
+
+.o {
+    fill: none;
+    stroke-dasharray: 200;
+
+    animation: a-o 2s linear 0s 1 normal backwards;
+}
+
+.x__line1,
+.x__line2 {
+    animation: a-x 1s linear 0s 1 normal backwards;
+    stroke-dasharray: 73;
+}
+
+.x__line2 {
+    animation-delay: 1s;
+}
+
+@keyframes a-x {
+    from {
+        stroke-dashoffset: 73;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes a-o {
+    from {
+        stroke-dashoffset: 200;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.cross__board-item-el {
+    position: absolute;
+
+    width: 80%;
+    height: 80%;
+
+    top: 10%;
+    left: 10%;
+}
+
+.cross__board-item:hover {
+    background-color: rgba(155, 224, 250, 0.16);
+    cursor: pointer;
+}
+
+.cross__finish-line {
+    position: absolute;
+    width: 100%;
+    height: 15px;
+
+    stroke: #000;
+    stroke-width: 15px;
+    stroke-linecap: round;
+
+    transform-origin: 0 0;
+    transform: translateY(-50%);
+}
+
+.cross__finish-line--row.cross__finish-line--0 {
+    top: 16.67%;
+    left: 0;
+}
+
+.cross__finish-line--row.cross__finish-line--1 {
+    top: 50%;
+    left: 0;
+}
+
+.cross__finish-line--row.cross__finish-line--2 {
+    top: 83.33%;
+    left: 0;
+}
+
+.cross__finish-line--column {
+    transform: rotate(90deg) translateY(-50%);
+}
+
+.cross__finish-line--column.cross__finish-line--0 {
+    left: 16.67%;
+    top: 0;
+}
+
+.cross__finish-line--column.cross__finish-line--1 {
+    left: 50%;
+    top: 0;
+}
+
+.cross__finish-line--column.cross__finish-line--2 {
+    left: 83.33%;
+    top: 0;
+}
+
+.cross__finish-line--diagonal.cross__finish-line--0 {
+    transform: rotate(45deg) translateY(-50%) scaleX(1.4);
+}
+
+.cross__finish-line--diagonal.cross__finish-line--1 {
+    transform-origin: 100% 0;
+    transform: rotate(-45deg) translateY(-50%) scaleX(1.4);
+}
+
+.cross__finish-line {
+    stroke-dasharray: 134%;
+
+    animation: finish-line 2s linear 2s 1 normal backwards;
+}
+
+@keyframes finish-line {
+    from {
+        stroke-dashoffset: 134%;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}

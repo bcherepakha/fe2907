@@ -27,6 +27,8 @@ function Timer(props) {
 //? Timer.prototype = { constructor: Timer, __proto__: Object.protoype }
 //? Timer.__proto__ = Function.prototype
 
+Timer.DESAULT = {}; // static
+
 Timer.prototype.createContent = function () {
     const wrapper = document.createElement('div');
     const valueEl = document.createElement('span');

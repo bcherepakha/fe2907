@@ -1,44 +1,25 @@
-export class Cell {
-    constructor(props) {
-        this.props = props;
+import EventSource from "./eventSource.js";
 
-        this.events = {};
+// Cell.prototype.__proto__ = EventSource.prototype
+
+export class Cell extends EventSource {
+    constructor(props) {
+        super();
+
+        this.props = props;
 
         this.createElement();
     }
 
-    addEventListener(eventName, callback) {
-        if (!this.events[eventName]) {
-            this.events[eventName] = [];
-        }
-
-        this.events[eventName].push(callback);
-    }
-
-    removeEventListener(eventName, callback) {
-        if (!this.events[eventName]) {
-            return ;
-        }
-
-        this.events[eventName] = this.events[eventName].filter(fn => fn !== callback);
-    }
-
-    dispatch(eventName) {
-        if (!this.events[eventName]) {
-            return ;
-        }
-
-        const event = {
-            target: this
-        };
-
-        this.events[eventName].forEach(callback => callback(event));
+    get isEditable() {
+        return this.props.editable;
     }
 
     setKey(idx) {
         this.row = Math.floor(idx / 9);
         this.column = idx % 9;
         this.square = Math.floor(this.column / 3) + Math.floor(this.row / 3) * 3;
+        this.squareKey = (this.row % 3)*3 + this.column % 3;
     }
 
     setProps(newProps) {
@@ -76,6 +57,8 @@ export class Cell {
     render() {
         this.rootEl.dataset.activeCell = this.props.active;
         this.rootEl.dataset.activeRange = this.props.inRange;
+        this.rootEl.dataset.error = this.props.error;
+        this.rootEl.innerText = this.props.value;
 
         return this.rootEl;
     }

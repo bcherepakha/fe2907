@@ -280,6 +280,10 @@ body {
 	text-decoration: line-through;
 }
 
+.todo-list li.disabled {
+	background-color: #ebeae9;
+}
+
 .todo-list li .destroy {
 	display: none;
 	position: absolute;

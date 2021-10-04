@@ -3,10 +3,11 @@ class TasksServer {
         this.baseURL = 'https://5d9969125641430014051850.mockapi.io/tasks';
     }
 
-    getTasks() {
-        return this.wait()
-            .then(() => fetch(this.baseURL))
-            .then(response => response.json());
+    async getTasks() {
+        await this.wait();
+        const response = await fetch(this.baseURL);
+
+        return response.json();
     }
 
     wait() {
@@ -15,16 +16,23 @@ class TasksServer {
         });
     }
 
-    setTaskData( taskData ) {
-        return this.wait()
-            .then(() => fetch(`${this.baseURL}/${taskData.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(taskData)
-            }))
-            .then(response => response.json());
+    async setTaskData( taskData ) {
+        try {
+            await this.wait();
+            const response = fetch(`${this.baseURL}/${taskData.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(taskData)
+                });
+
+            return response.json();
+        } catch (ex) {
+            console.log(ex);
+
+            return ex;
+        }
     }
 
     createTask( taskData ) {

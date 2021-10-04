@@ -58,6 +58,11 @@ export default class Task extends EventSource {
         }
     }
 
+    setHidden( hidden ) {
+        this.hidden = hidden;
+        this.render();
+    }
+
     setDisabled( disabled ) {
         this.disabled = disabled;
         this.render();
@@ -132,6 +137,8 @@ export default class Task extends EventSource {
         this.completeEl.disabled = this.disabled;
         this.destroyBtn.disabled = this.disabled;
         this.editEl.disabled = this.disabled;
+
+        this.rootEl.hidden = this.hidden;
 
         return this.rootEl;
     }
